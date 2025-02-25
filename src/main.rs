@@ -5,7 +5,6 @@ use std::fs;
 use walkdir::WalkDir;
 
 fn main() {
-    // println!("clearing out {}", OUT_DIR);
     let _ = fs::remove_dir_all(OUT_DIR);
     let _ = fs::create_dir(OUT_DIR);
     let _ = fs::write(format!("{}/.nojekyll", OUT_DIR), "");
@@ -14,20 +13,17 @@ fn main() {
 
     let template = fs::read_to_string("template.html").expect("should exist");
 
-    // find backlinks
     for entry in WalkDir::new(IN_DIR).into_iter().filter_map(|e| e.ok()) {
         let real_path = format!("{}", entry.path().display());
         let real_path = real_path
             .strip_prefix(IN_DIR)
             .expect("if it doesn't have it something has GONE WRONG");
-        // println!("found {}", real_path);
         if entry.path().is_dir() {
             let _ = fs::create_dir(format!("{}{}", OUT_DIR, real_path));
         } else if real_path.ends_with(".pssg") {
             let f = fs::read_to_string(entry.path())
                 .unwrap_or("this is an absolutely FUCKED UP file".into())
                 .replace("\r\n", "\n");
-            // println!("{}", f);
 
             if !f.contains("!! DRAFT !!") {
                 for l in f.lines() {
@@ -36,10 +32,6 @@ fn main() {
                             .entry(l.strip_suffix(" <--").expect("it ends with it").to_string())
                             .or_insert(Vec::new());
                         this_backlinks.push(real_path.to_string().replace("\\", "/"));
-                        // println!(
-                        // "backlink of type {}! taking note",
-                        // l.strip_suffix(" <--").expect("ends with")
-                        // );
                     }
                 }
             }
@@ -66,7 +58,6 @@ fn main() {
                     let my_backlinks = backlinks.get(backlink_type);
                     if my_backlinks.is_some() {
                         for l in my_backlinks.unwrap() {
-                            // println!("{} now links to {}", k, l);
                             new_content.push_str("=> ");
                             new_content.push_str(l);
                             new_content.push('\n');
