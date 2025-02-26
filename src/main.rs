@@ -1,5 +1,5 @@
-const OUT_DIR: &'static str = "docs/";
-const IN_DIR: &'static str = "raw/";
+const OUT_DIR: &str = "docs/";
+const IN_DIR: &str = "raw/";
 use std::collections::HashMap;
 use std::fs;
 use walkdir::WalkDir;
@@ -30,7 +30,7 @@ fn main() {
                     if l.ends_with(" <--") {
                         let this_backlinks = backlinks
                             .entry(l.strip_suffix(" <--").expect("it ends with it").to_string())
-                            .or_insert(Vec::new());
+                            .or_default();
                         this_backlinks.push(real_path.to_string().replace("\\", "/"));
                     }
                 }
@@ -153,7 +153,7 @@ fn main() {
             out_thing,
             template
                 .replace("||content||", &v)
-                .replace("||title||", &path),
+                .replace("||title||", path),
         );
     }
 }
