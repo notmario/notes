@@ -207,8 +207,10 @@ let q(x) be another predicate that depends on the same variable x. then:
 (ii) ¬(∃_p(x) x : q(x)) ⇔ ∀_p(x) x , ¬q(x)
 
 <b>### note</b>
-∀ and ∃ are commutative within themselves(?? define that more rigorously)
-but not within each other. you know what i mean
+∃ x : ∃ y : p(x,y) ⇔ ∃ y : ∃ x : p(x,y)
+∀ x, ∀ y, p(x,y) ⇔ ∀ y, ∀ x, p(x,y)
+
+BUT this is not true if you have different quantifiers!!!
 
 e.g. ∃ y : ∀ x, y > x is false. "there is a largest real number"
 but, ∀ x, ∃ y : y > x is true. "every number has a number that is larger than it"
