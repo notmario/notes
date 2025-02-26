@@ -1,0 +1,193 @@
+math1017 <--
+
+# Ooops.
+i blundered by forgetting to bring a notebook. there probably won't
+be any more digital notes for this class. oops
+thankfully this one is typable (no integral etc.)
+
+# logic
+involves manipulating propositions
+
+## negation
+¬p represents the negation of p.
+if p is true, ¬p is false, and if p is false, ¬p is true.
+it is unary (applies to one proposition), unlike the other
+connectives, which are binary (applies to two propositions)
+
+==========
+| p | ¬p |
+==========
+| T |  F |
+| F |  T |
+==========
+
+## conjunction
+p ∧ q is the conjunction of p and q. equivalent to "and".
+p ∧ q is true if and only if p is true and q is true,
+else it is false.
+
+=================
+| p | q | p ∧ q |
+=================
+| T | T |   T   |
+| T | F |   F   |
+| F | T |   F   |
+| F | F |   F   |
+=================
+
+e.g.
+let p be the proposition "snow is white" and q be the proposition "roses are animals"
+p ∧ q is false, as q is false (p is hence ignored)
+
+## disjunction
+
+p ∨ q is the disjunction of p and q. equivalent to "or" in a logical sense
+### not exclusive or.
+p ∨ q is true if p is true or q is true, else it is false.
+
+=================
+| p | q | p ∨ q |
+=================
+| T | T |   T   |
+| T | F |   T   |
+| F | T |   T   |
+| F | F |   F   |
+=================
+
+e.g.
+using p and q from the prior example,
+p ∨ q is true, as p is true (q is hence not required to be true)
+
+## material implication
+this is a basic logical implication
+p ⇒ q represents "if p, then q". this *can* be represented by ¬p ∨ q.
+this is only false if p is true and q is false, otherwise it is true.
+
+=================
+| p | q | p ⇒ q |
+=================
+| T | T |   T   |
+| T | F |   F   |
+| F | T |   T   |
+| F | F |   T   |
+=================
+
+p is the "antecedent", and q is the "consequent" in this form
+
+### modus ponens
+((p ⇒ q) ∧ p) ⇒ q
+if p implies q, and p is true, then q is true.
+
+### modus tollens
+((p ⇒ q) ∧ ¬q) ⇒  ¬p
+if p implies q, and q is false, then p is false.
+
+### implications
+if (p ⇒ q), then:
+- p is a sufficient condition for q, but is not necessary
+- q is a necessary condition for p
+
+## biconditional
+p ⇔ q is the "biconditional" of p and q?
+represents "if and only if" or logical equivalence
+("if and only if" can be represented by "iff")
+
+can be represented by (p ⇒ q) ∧ (q ⇒ p)
+
+=================================
+| p | q | p ⇒ q | q ⇒ p | p ⇔ q |
+=================================
+| T | T |   T   |   T   |   T   |
+| T | F |   F   |   T   |   F   |
+| F | T |   T   |   F   |   F   |
+| F | F |   T   |   T   |   T   |
+=================================
+
+### remark
+in definitions, "if" can be interpreted as "if and only if"
+
+e.g. n is even if there exists an integer m where n=2m
+
+### contrapositive!!
+(p ⇒ q) ⇔ (¬q ⇒ ¬p)
+this follows from modus ponens and modus tollens
+
+### some trivial observations
+(¬(¬p)) ⇔ p (Double negation)
+
+(p ∧ q) ⇔ (q ∧ p) (Commutative property for conjunction)
+(p ∧ q) ∧ r ⇔ p ∧ (q ∧ r) (Associative property for conjunction)
+
+(p ∨ q) ⇔ (q ∨ p) (Commutative property for disjunction)
+(p ∨ q) ∨ r ⇔ p ∨ (q ∨ r) (Associative property for disjunction)
+
+p ∧ (q ∨ r) ⇔ (p ∧ q) ∨ (p ∧ r) (Distributive property)
+
+## de morgan's laws
+
+(i)  ¬(p ∨ q) ⇔ (¬p) ∧ (¬q)
+(ii) ¬(p ∧ q) ⇔ (¬p) ∨ (¬q)
+
+# predicate logic
+suppose x is a variable. p(x) is a "predicate" if it is a statement
+containing the symbol x which becomes a proposition when we substitute
+the symbol x with a value from a specific domain D.
+
+## quantifiers
+p(x) is true for all x => ∀ x, p(x) [ universal quantifier ]
+there exists an x where p(x) is true, ∃ x : p(x) [ existential quantifier ]
+
+( this part is not typable, due to subscripts. let a_b represent a subscript b )
+
+∀_p(x) x, q(x) is the proposition (∀ x, p(x) ⇒  q(x))
+∃_p(x) x : q(x) is the proposition (∃ x : p(x) ∧ q(x))
+
+consider the proposition "all people are mortal".
+this can be represented with:
+p(x) = "x is a person"
+q(x) = "x is mortal"
+the proposition can be represented with ∀_p(x) x, q(x)
+
+consider the proposition "there exists a person who is taller than 2 meters"
+this can be represented with:
+p(x) = "x is a person"
+q(x) = "x is taller than 2 meters"
+the proposition can be represented with ∃_p(x) x : q(x)
+
+consider the predicate "(x+1)^2 = x^2 + 2x + 1". this does not have a definite truth
+value, since it is a general statement for any value of x. however, the statement
+∀ x∈R, (x+1)^2 = x^2 + 2x + 1
+has a truth value (it is true), which means it is a proposition.
+
+### de morgan's laws for quantifiers
+
+let p(x) be a predicate that depends on a variable x. then:
+
+(i)  ¬(∀ x, p(x)) ⇔ ∃x : ¬p(x)
+    "if p(x) is false for all x, then there is an x where p(x) is false"
+(ii) ¬(∃ x : p(x)) ⇔ ∀ x , ¬p(x)
+    "if there is not an x where p(x) is true, then p(x) is false for all x"
+
+let q(x) be another predicate that depends on the same variable x. then:
+
+(i)  ¬(∀_p(x) x, q(x)) ⇔ ∃_p(x) x : ¬q(x)
+(ii) ¬(∃_p(x) x : q(x)) ⇔ ∀_p(x) x , ¬q(x)
+
+### note
+∀ and ∃ are commutative within themselves(?? define that more rigorously)
+but not within each other. you know what i mean
+
+e.g. ∃ y : ∀ x, y > x is false. "there is a largest real number"
+but, ∀ x, ∃ y : y > x is true. "every number has a number that is larger than it"
+
+## definition of equality
+
+(i)  ∀ x, (x = x)
+(ii) let p(k) be a predicate that depends on a variable k. then,
+    ∀ x,y, (x = y) ⇔ ( p(x) ⇔ p(y) )
+
+from this follows these results:
+(i)  ∀ x,y, (x = y) ⇒ (y = x) [ symmetric property ]
+(ii) ∀ x,y,z, ((x = y) ∧ (y = z)) ⇒ (x = z) [ transitive property ]
+
+the proof of these is trivial
