@@ -8,6 +8,9 @@ thankfully this one is typable (no integral etc.)
 # logic
 involves manipulating propositions
 
+some propositions are: 1 + 1 = 2, 1 + 1 = 3
+the first one is true, the second one is false [citation needed]
+
 ## negation
 ¬p represents the negation of p.
 if p is true, ¬p is false, and if p is false, ¬p is true.
@@ -132,6 +135,8 @@ p ∧ (q ∨ r) ⇔ (p ∧ q) ∨ (p ∧ r) (Distributive property)
 suppose x is a variable. p(x) is a "predicate" if it is a statement
 containing the symbol x which becomes a proposition when we substitute
 the symbol x with a value from a specific domain D.
+
+e.g. "x + 1 = 2" is a predicate. if we substitute x = 1, we get the proposition "1 + 1 = 2".
 
 ## quantifiers
 p(x) is true for all x => ∀ x, p(x) [ universal quantifier ]
