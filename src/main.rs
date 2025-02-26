@@ -130,6 +130,10 @@ fn main() {
                     new_content.push_str("<b>");
                     new_content.push_str(l);
                     new_content.push_str("</b>\n")
+                } else if l.contains("-->") || l.contains("<--") {
+                    new_content.push_str("<span class=\"dim\">");
+                    new_content.push_str(l);
+                    new_content.push_str("</span>\n")
                 } else {
                     new_content.push_str(l);
                     new_content.push('\n');
