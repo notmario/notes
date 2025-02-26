@@ -227,6 +227,166 @@ from this follows these results:
 
 the proof of these is trivial
 
+<b>## univocal predicates</b>
+
+let p(x) be a predicate that depends on the variable x.
+the predicate "there exists at most one x such that p(x)"
+is defined as the predicate
+"∀ u, ∀ v, ( p(u) ∧ p(v) ) ⇒ (u = v)"
+
+<b>## functional predicates</b>
+
+let p(x) be a predicate that depends on the variable x.
+the predicate "the exists one and only one x such that p(x)"
+and "p(x) is functional in x" are defined as the predicate
+"(∃ x : p(x)) ∧ 'there exists at most one x such that p(x)'"
+
+this can be written as ∃! x : p(x)
+
+e.g. x ∈ R+ ∧ x^2 = 2 is functional in x, where the only value is sqrt(2)
+
+<b># sets</b>
+a set is basically a group of elements
+(but what is a group? what is an element? does not matter, we can use axioms to avoid this definition)
+
+the set without elements is called the empty set, and is written as ∅ .
+
+let A be a set. if an object a belongs to A, we can write a ∈ A.
+this means "a is an element of A".
+if it does not belong to A, we can write a ∉ A.
+
+let A and B be two sets. we can say that A is a subset of B if each element of a is contained
+within B. we can write A ⊆ B.
+
+A ⊆ B ⇔ ∀ x, (x ∈ A ⇒ x ∈ B)
+this implies:
+∀ A, A ⊆ A
+
+two sets are equal if each is a subset of each other.
+A = B ⇔ (A ⊆ B ∧ B ⊆ A)
+(this is technically the axiom of extensionality)
+
+if a set A is a "proper subset" of B, A must be a subset of B, but they must not be equal.
+A ⊂ B ⇔ A ⊆ B ∧ ¬(A = B)
+
+the empty set is a subset of all sets, and is a proper subset of all sets except itself.
+
+if it is not possible to list all of the elements in a set, we can use "set builder notation"
+to define it, written as { x | p(x) }, which is the set containing all x that satisfy p(x)
+
+e.g. A = {x | x ∈ N, y ∈ N, x = y^2} is the set of all square natural numbers
+
+this is not valid for all p(x)!!!!!
+e.g. p(x) = x ∉ x
+let A = {x | x ∉ x}.
+does A contain itself?
+if it does, then x ∉ x is false, meaning it does not contain itself
+if it doesn't, then x ∉ x is true, meaning it does contain itself!!
+this is a classic proof by contradiction!!!!!
+hence, not all p(x) are valid predicates for a set.
+
+the order of elements in a set is not important, and has no repetitions
+e.g. {1, 2} = {2, 1}
+
+<b>### set operations</b>
+union - A ∪ B = {x | x ∈ A ∨ x ∈ B} - the set of all elements in A or B
+intersection - A ∩ B = {x | x ∈ A ∧ x ∈ B} - the set of all elements in A and B
+difference - A \ B = {x | x ∈ A ∧ x ∉ B} - the set of all elements in A but not B
+complement - if A ⊆ X, then C_x(A) = X \ A
+
+<b>### cartesian product & ordered pair</b>
+first we must introduce the ordered pair. since sets have no order, this requires a new construction
+
+(a, b) = { {a}, {a, b} }. 
+the ordered pair of a and b is the set containing the set containing a, and the set containing a and b
+a ≠ b ⇔ (a, b) ≠ (b, a)
+(a = c) ∧ (b = d) ⇔ (a, b) = (c, d)
+
+at this point, we can construct natural numbers (???????)
+
+note that we can define a triple (a, b, c) as ((a, b), c), etc.
+
+now we can define the "cartesian product", which is the set of all combinations of elements
+between two sets.
+
+A × B = {(a, b) | a ∈ A ∧ b ∈ B}.
+
+e.g. {1, 2} x {1, 2, 3} = {(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)}
+
+recall common sets of numbers, N, Z, Q, R, C (SHOULD BE BLACKBOARD BOLD.)
+
+variations include N* (nonzero), R+ (nonnegative), R+* (positive), R- (nonpositive), R-* (negative)
+
+<b>### intervals</b>
+
+let the interval [a, b] be the set { x ∈ R | a ≤ x ≤ b }
+let the interval (a, b) be the set { x ∈ R | a < x < b }
+
+<b>#### THIS IS NOT THE ORDERED PAIR OF (a, b)!!!</b>
+<b>#### the notation ]a, b[ may be used, however it does look uglier.</b>
+
+the intervals [a, b) and (a, b] also exist but i cbb defining them you arent dumb
+
+from this, it follows that [a, a] = { a }, and [a, a) = (a, a] = (a, a) = ∅ .
+
+let the set { x ∈ R | x > n } be written as ( n, +∞ ) for n ∈ R.
+let the set { x ∈ R | x < n } be written as ( -∞, n ) for n ∈ R.
+this follows for [n, +∞ ) and ( -∞, n ]
+
+<b>## functions</b>
+
+let A and B be two sets. A x B is the set of all ordered pairs of A and B.
+let Γ ⊆ A × B. this defines a triple (A, B, Γ) which is called the "correspondence".
+the set A is called the domain, and the set B is called the codomain.
+the set Γ is called the "graph" of the correspondence.
+
+the triple (A, B, Γ) is a relationship between sets A and B.
+
+e.g. take the correspondence "y = x^2", where x, y ∈ R.
+the set Γ is hence defined as { (x, y) | x, y ∈ R ∨ y = x^2 }.
+Γ = { (0, 0), (1, 1), (2, 4), (3, 9), (sqrt(2), 2), ... }
+
+if (A, B, Γ) is a correspondence, we can hence define the "inverse".
+
+Γ-1 = { (b,a) | (a, b) ∈ Γ }
+this allows for the construction of the inverse correspondence (B, A, Γ-1)
+
+these are not technically functions yet, as they are not one to one.
+we can define a function as a correspondence that satisfies the following predicates:
+
+(i)  ∀ x ∈ A, ∃ y ∈ B : (x, y) ∈ Γ "each element of A is mapped to at least one element in B"
+     "a function is defined at each point in its domain"
+(ii) ∀ x ∈ A, ∀ y1, y2 ∈ B, ((x, y1) ∈ Γ ∧ (x, y2) ∈ Γ) ⇒ y1 = y2
+     "each element of A has at most one correspondent"
+
+now, if we have two sets A and B and a function that maps A to be, we write "f : A −→ B"
+meaning "f is a function that maps A to B"
+given an element a of A, we can write f(a) as the element of B that is A's correspondent.
+
+we can say f maps a to f(a). we can visualise this as a block or a "function machine" that
+does this action.
+
+           a    |-------|   f(a)
+      ========> |   f   | ========>
+                |-------|
+
+(Holy shit. function machine reference)
+
+we can restrict a function's domain, which will result in a different function
+let A, B, C be three sets, where C ⊆ A.
+take f : A −→ B. we can define f|_c : C −→ B, x |→  f(x)
+
+we can define the "image" or range of a function for (A, B, Γ) to be:
+{ f(x) | x ∈ A } or { y ∈ B | ∃ x ∈ A : y = f(x) }
+
+take the image I of a relationship (A, B, Γ). it follows that I ⊆ B.
+
+functions that map elements from the domain into distinct elements
+of the codomain are called "injective" or "one-to-one".
+
+we say that f is "surjective" or "onto" if f(A) = B.
+This means that every element of the codomain can be reached by applying f to an element of A.
+
 © 2025 something something (I really should write something better here)</pre>
   </body>
 </html>
