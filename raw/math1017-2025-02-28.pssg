@@ -1,0 +1,116 @@
+# refresher
+
+a function is defined with three sets, (A, B, Γ), where Γ ⊆ A x B
+take a function f. we can write the application of f as f(x), where
+
+## injective functions
+
+given f : A −→  B,
+
+functions that map elements from the domain into distinct elements
+of the codomain are called "injective" or "one-to-one".
+
+this is graphically equivalent to the "horizontal line test", where there must be <= 1 solution.
+
+∀ x1, x2 ∈ A, x1 ≠ x2 ⇒ f(x1) ≠ f(x2)
+or
+∀ x1, x2 ∈ A, f(x1) = f(x2) ⇒ x1 = x2
+
+e.g. sin is not injective, as sin 0 = sin π = 0.
+however,
+
+f : [-π/2, π/2] −→  R
+    x |→  sin(x)
+
+is injective.
+
+## surjective functions
+
+we say that f is "surjective" or "onto" if f(A) = B.
+or
+∀ y ∈ B, ∃ x ∈ A, m ∈ Γ : m = (x, y)
+
+This means that every element of the codomain can be reached by applying f to an element of A.
+
+this is equivalent to the horizontal line test, where there must be >= 1 solution.
+
+e.g. take the function f, where
+
+f : R −→  R
+    x |→  e^x
+
+f is not surjective, as nonpositive values cannot be reached.
+
+If we take the image of a function I ( { f(x) | x ∈ A } ),
+obviously every function becomes surjective if we change our codomain to I
+
+hence we can make f surjective by changing our codomain to R+*.
+
+### bijective functions
+we call a function that is injective and surjective "bijective" or a "one-to-one correspondence".
+
+## invertible functions
+
+if a function is bijective, it can be inverted.
+
+take a bijective function f : A −→  B. we can invert it to get f-1: B −→  A
+from this follows:
+f(f-1(x)) = x, f-1(f(x)) = x
+
+if f is not injective and we try to invert it, then we cannot get those properties,
+as multiple values will be taken from the functions
+
+## function composition
+
+take two functions f, g where f : A −→  B and G : B −→  C.
+we can define a composition of f and g (g ◦ f) which represents subsequent
+application of f and g in that order.
+
+this is Not commutative, as A does not necessarily equal C.
+
+## sequences
+
+a sequence is a subset of all functions where the domain is a subset of N.
+
+e.g. f : N −→  N or g : N* −→  R
+
+# real numbers
+
+we will not cover the construction of the reals.
+we will assume a set has been provided named R which has two operations,
++ and · which satisfy the following properties (field axioms):
+
+(FA1) commutative property
+    ∀ a, b ∈ R, a + b = b + a and a ·b = b ·a
+(FA2) associative property
+    ∀ a, b, c ∈ R, (a + b) + c = a + (b + c) and (a ·b) · c = a ·(b ·c)
+(FA3) distributivity of multiplication over addition
+    ∀ a, b, c ∈ R, (a + b) ·c = (a ·c) + (b ·c)
+(FA4) there is an element "zero", written 0, which is the additive identity
+    ∀ a ∈ R, a + 0 = 0 + a = a
+(FA5) there is an element "one" different from 0, written 1, which is the multiplicative identity
+    ∀ a ∈ R, a ·1 = 1 ·a = a
+(FA6) for each element a of R there exists an element (-a) such that
+    a + (−a) = (−a) + a = 0
+(FA7) for each element a of R that is different from zero, there exists an element (a^-1) such that
+    a ·a−1 = a−1 ·a = 1
+
+from these, subtraction and division are defined implicitly, where
+
+- : R x R -> R
+	a, b |-> a + (-b)
+/ : R x R -> R
+    a, b |-> a ·(b^-1)
+
+we can continue our description by defining order.
+the relation a < b satisfies the following properties:
+
+(OA1) ∀ a ∈ R, it is not true that a < a
+(OA2) ∀ a, b ∈ R, if a < b, then it is not true that b < a
+(OA3) ∀ a, b, c ∈ R, if a < b and b < c, then a < c
+(OA4) ∀ a, b ∈ R and a ≠ b, then either a < b or b < a
+(OA5) ∀ a, b, c ∈ R, if a < b, then a + c < b + c
+(OA6) ∀ a, b, c ∈ R, if a < b and 0 < c, then ac < bc
+
+if we write a ≤ b, a < b or a = b
+we can write b > a instead of a < b, and b ≥ a instead of a ≤ b.
