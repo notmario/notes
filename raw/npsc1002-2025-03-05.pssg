@@ -17,6 +17,34 @@ but this isnt even early like. uhgh
 	- ai models are often used to generate massive amounts of misinformation
 		and fake articles and text
 	- also used to create low quality ripoffs of other things but not important
-- creates low quality stuff in general
-	- example of like. making a short program takes like 50x longer with ai hopefully
+
+# scripty thing
+
+generative ai. i'm sure you've heard the phrase tossed around. ai this, that gpt.
+in fact, i'd be shocked if you haven't at least heard about it in passing, considering
+every single major technology company has tried to shove it into every single product
+they can get their hands on.
+
+and for what? what does ai actually contribute to society?
+
+well.
+
+a surprisingly common use for these ai models are is to create 
+vast numbers of articles and posts on social media platforms, often with a specific agenda.
+these posts are usually quite easy to tell apart from actual people... for now. if AI technology
+continues to increase at the rate that it is, then these swarms of bots will eventually
+become convincing enough to act as actual people. that is, IF AI technology continues at that rate.
+if regulations are put in place on it, we may be able to cut this off before it goes too far.
+
+now, ignoring that. ai could in theory be a useful tool for research and gathering information.
+considering the sheer scale of these models, the amount of data and tokens that go into
+making each one of them function, surely they can at least get basic facts right? right?
+
+well. a few months ago, if you asked gpt-4, openai's flagship model, the basic
+question of "how many rs are in the word strawberry", it could not consistently get it right.
+this has since been patched, but in a way that is specific to that one individual task, which is
+not sustainable for the future of the technology. on top of that, one of the major problems in
+the field of ai research is "hallucination" or as has been dubbed by some researchers, "bullshitting",
+where the model will make up false facts just to give an answer that seems "good enough". how will
+a model that consistently gives wrong answers be useful?
 
