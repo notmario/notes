@@ -1,0 +1,25 @@
+comp1007 <--
+
+I am now Gabe. Unrelated, but true.
+
+# Story Time
+story. it was deep symbolism
+
+
+## What does the code do?
+
+Takes a large file
+
+counts the number of each word in the file
+
+prints the number of each word in the file, presumably not sorted
+
+prints the number of unique words in the file
+
+## What does code do 2?
+
+it prints out various bits of the file
+
+first 5 chars, full file, first line, lines individually as an array
+
+this one is commented
